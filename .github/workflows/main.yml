@@ -38,7 +38,8 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "✅ Tests OK - ${{ github.repository }}"
-          to: destinatario@dominio.com
+          to: mariana.montenegro77@gmail.com
+          from: Tu Nombre <${{ secrets.MAIL_USERNAME }}>
           body: "Los tests de Newman corrieron correctamente en ${{ github.repository }}, branch ${{ github.ref_name }}."
       - name: Enviar mail si falló
         if: failure()
@@ -49,5 +50,6 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "❌ Tests FALLARON - ${{ github.repository }}"
-          to: destinatario@dominio.com
+          to: mariana.montenegro77@gmail.com
+          from: Tu Nombre <${{ secrets.MAIL_USERNAME }}>
           body: "Los tests de Newman fallaron en ${{ github.repository }}, branch ${{ github.ref_name }}. Ver detalle: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
